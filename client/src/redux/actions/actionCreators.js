@@ -9,7 +9,7 @@ import { GET_ALL_GAMES, ERROR, GET_GAME_BY_NAME, FILTER_BY_CREATION, FILTER_BY_G
 export const getAllGames = () => {
     return async (dispatch) => {
         try {
-            await axios.get(`${URL_BASE}/videogames`)
+            await axios.get(`https://gamescatolog.onrender.com/videogames`)
             .then((res) => {
                 return dispatch({ type: GET_ALL_GAMES, payload: res.data })
             })
@@ -26,7 +26,7 @@ export const getAllGames = () => {
 export const getGameByName = (name) => {
     return async (dispatch) => {
         try {
-            const game = await axios.get(`${URL_BASE}/videogames?name=${name}`);
+            const game = await axios.get(`https://gamescatolog.onrender.com/videogames?name=${name}`);
             const response = game.data;
             return dispatch({ type: GET_GAME_BY_NAME, payload: response });
         } catch (error) {
@@ -42,7 +42,7 @@ export const getGameByName = (name) => {
 export const getGameDetail = (idVideogame) => {
     return async (dispatch) => {
         try {
-            const response = await axios.get(`${URL_BASE}/videogames/${idVideogame}`);
+            const response = await axios.get(`https://gamescatolog.onrender.com/videogames/${idVideogame}`);
             const game = response.data;
             return dispatch({ type: GET_GAME_DETAIL, payload: game });
         } catch (error) {
@@ -63,7 +63,7 @@ export const clearDetail = () => {
 export const postNewGame = (game) => {
     return async (dispatch) => {
         try {
-            const response = await axios.post(`${URL_BASE}/videogames`,game);
+            const response = await axios.post(`https://gamescatolog.onrender.com/videogames`,game);
             return dispatch({ type: POST_NEW_GAME, payload: response });
         } catch (error) {
             return dispatch({
@@ -81,7 +81,7 @@ export const postNewGame = (game) => {
 export const getAllGenres = () => {
     return async (dispatch) => {
         try {
-            const response = await axios.get(`${URL_BASE}/genres`);
+            const response = await axios.get(`https://gamescatolog.onrender.com/genres`);
             const genres = response.data;
             return dispatch({ type: GET_ALL_GENRES, payload: genres });
         } catch (error) {
