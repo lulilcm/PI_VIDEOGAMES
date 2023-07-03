@@ -121,7 +121,7 @@ const getDbGameByName = async (name) => {
         background_image: videogame.background_image,
         released: videogame.released,
         rating: videogame.rating,
-        genres: videogame.genres?.map((genre) => genre.name),
+        genres: videogame.genres && videogame.genres.map((genre) => genre.name),
         createdInDb: videogame.createdInDb
     }
     });
@@ -168,7 +168,7 @@ const getDbGameById = async (idVideogame) => {
         background_image: videogame.background_image,
         released: videogame.released,
         rating: videogame.rating,
-        genres: videogame.genres?.map((genre) => genre.name),
+        genres: videogame.genres && videogame.genres.map((genre) => genre.name),
         createdInDb: videogame.createdInDb
     }
 
